@@ -1,0 +1,1010 @@
+[
+  {
+    "date": "2023-09-27",
+    "hour": "00",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "01",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "02",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "03",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "04",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "05",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "06",
+    "celcius": 19,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "07",
+    "celcius": 20,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "08",
+    "celcius": 20,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "09",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "10",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "11",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "12",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "13",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "14",
+    "celcius": 22,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "15",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "16",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "17",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "18",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "19",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "20",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "21",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "22",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-27",
+    "hour": "23",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "00",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "01",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "02",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "03",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "04",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "05",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "06",
+    "celcius": 19,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "07",
+    "celcius": 20,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "08",
+    "celcius": 20,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "09",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "10",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "11",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "12",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "13",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "14",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "15",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "16",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "17",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "18",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "19",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "20",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "21",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "22",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-28",
+    "hour": "23",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "00",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "01",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "02",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "03",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "04",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "05",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "06",
+    "celcius": 20,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "07",
+    "celcius": 19,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "08",
+    "celcius": 19,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "09",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "10",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "11",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "12",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "13",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "14",
+    "celcius": 22,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "15",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "16",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "17",
+    "celcius": 22,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "18",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "19",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "20",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "21",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "22",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-29",
+    "hour": "23",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "00",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "01",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "02",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "03",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "04",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "05",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "06",
+    "celcius": 20,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "07",
+    "celcius": 20,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "08",
+    "celcius": 20,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "09",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "10",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "11",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "12",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "13",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "14",
+    "celcius": 22,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "15",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "16",
+    "celcius": 22,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "17",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "18",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "19",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "20",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "21",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "22",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-09-30",
+    "hour": "23",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "00",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "01",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "02",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "03",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "04",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "05",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "06",
+    "celcius": 20,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "07",
+    "celcius": 19,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "08",
+    "celcius": 20,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "09",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "10",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "11",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "12",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "13",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "14",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "15",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "16",
+    "celcius": 22,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "17",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "18",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "19",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "20",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "21",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "22",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-01",
+    "hour": "23",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "00",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "01",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "02",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "03",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "04",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "05",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "06",
+    "celcius": 19,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "07",
+    "celcius": 19,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "08",
+    "celcius": 20,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "09",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "10",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "11",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "12",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "13",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "14",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "15",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "16",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "17",
+    "celcius": 22,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "18",
+    "celcius": 22,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "19",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "20",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "21",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "22",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-02",
+    "hour": "23",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "00",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "01",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "02",
+    "celcius": 14,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "03",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "04",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "05",
+    "celcius": 15,
+    "farenheit": 58
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "06",
+    "celcius": 19,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "07",
+    "celcius": 19,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "08",
+    "celcius": 19,
+    "farenheit": 67
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "09",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "10",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "11",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "12",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "13",
+    "celcius": 25,
+    "farenheit": 77
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "14",
+    "celcius": 22,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "15",
+    "celcius": 22,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "16",
+    "celcius": 22,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "17",
+    "celcius": 21,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "18",
+    "celcius": 22,
+    "farenheit": 71
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "19",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "20",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "21",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "22",
+    "celcius": 19,
+    "farenheit": 66
+  },
+  {
+    "date": "2023-10-03",
+    "hour": "23",
+    "celcius": 19,
+    "farenheit": 66
+  }
+]
