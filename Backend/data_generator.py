@@ -1,5 +1,7 @@
 import random
 import datetime
+import json
+from collections import defaultdict
 
 def celsius_to_fahrenheit(celsius):
     return int((celsius * 9/5) + 32)
@@ -20,14 +22,40 @@ def generate_temperature(hour):
     
     return f"{temperature_celsius} C, {temperature_fahrenheit} F"
 
-start_time = datetime.datetime(2023, 9, 27, 0, 0, 0)
-end_time = datetime.datetime(2023, 10, 4, 0, 0, 0)
-current_time = start_time
-num_seconds_per_week = (end_time - start_time).total_seconds()
+def generate_average():
+    hourly_averages = defaultdict(lambda: {"celsius": [], "fahrenheit": []})
 
-with open("backend/arduino_data.txt", "w") as file:
-    while current_time < end_time:
-        temperature = generate_temperature(current_time.hour)
-        entry = f"{current_time.strftime('%Y-%m-%d %H:%M:%S')} {temperature}\n"
-        file.write(entry)
-        current_time += datetime.timedelta(seconds=1)
+    with open("Backend/arduino_data.txt", "r") as file:
+        for line in file:
+            parts = line.split()
+            date = parts[0]
+            time = parts[1]
+            celsius = int(parts[2])
+            fahrenheit = int(parts[4])
+
+            hour = time.split(":")[0]
+            hourly_averages[(date, hour)]["celsius"].append(celsius)
+            hourly_averages[(date, hour)]["fahrenheit"].append(fahrenheit)
+
+    hourly_averages_json = []
+
+    for (date, hour), temperatures in hourly_averages.items():
+        average_celsius = sum(temperatures["celsius"]) // len(temperatures["celsius"])
+        average_fahrenheit = sum(temperatures["fahrenheit"]) // len(temperatures["fahrenheit"])
+
+        hourly_averages_json.append({
+            "date": date,
+            "hour": hour,
+            "celcius": average_celsius,
+            "farenheit": average_fahrenheit
+        })
+
+    with open("Backend/hourly_averages.json", "w") as json_file:
+        json.dump(hourly_averages_json, json_file, indent=2)
+
+    print("Hourly averages saved in 'hourly_averages.json'.")
+
+def main():
+    generate_average()
+
+main()
