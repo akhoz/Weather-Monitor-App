@@ -25,7 +25,7 @@ def generate_temperature(hour):
 def generate_average():
     hourly_averages = defaultdict(lambda: {"celsius": [], "fahrenheit": []})
 
-    with open("Backend/arduino_data.txt", "r") as file:
+    with open("Backend/Data/arduino_data.txt", "r") as file:
         for line in file:
             parts = line.split()
             date = parts[0]
@@ -50,7 +50,7 @@ def generate_average():
             "farenheit": average_fahrenheit
         })
 
-    with open("Backend/hourly_averages.json", "w") as json_file:
+    with open("Backend/Data/hourly_averages.json", "w") as json_file:
         json.dump(hourly_averages_json, json_file, indent=2)
 
     print("Hourly averages saved in 'hourly_averages.json'.")
