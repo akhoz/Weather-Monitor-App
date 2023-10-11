@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "263374167393",
+    "firebase_url": "https://weathermonitordb-default-rtdb.firebaseio.com",
+    "project_id": "weathermonitordb",
+    "storage_bucket": "weathermonitordb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263374167393:android:8a1cca242f16a344a6f920",
+        "android_client_info": {
+          "package_name": "com.weathermonitor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnYdTL6Z16DYOFzqY64FPKOUcb3Cr2HWQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
