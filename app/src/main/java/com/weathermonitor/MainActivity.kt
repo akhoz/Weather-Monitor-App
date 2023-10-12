@@ -8,8 +8,11 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import android.widget.TextView
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.*
+
+import android.graphics.Color
 
 class MainActivity : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
@@ -24,7 +27,15 @@ class MainActivity : AppCompatActivity() {
         FirebaseDatabase.getInstance().setPersistenceEnabled(true)
         databaseReference = FirebaseDatabase.getInstance().reference
 
+        //val textView = findViewById<TextView>(R.id.textView)
+
         val temperatureReport = mutableListOf<Any>()
+        val celciusReport = mutableMapOf<String, Map<String, Any>>()
+        val farenheitReport = mutableMapOf<String, Map<String, Any>>()
+
+
+        val celciusMap = mutableMapOf<String, Any>()
+        val farenheitMap = mutableMapOf<String, Any>()
         val temperatureKeys = mutableListOf<String>()
         val weatherMonitorReference = databaseReference.child("Temperature")
 
@@ -35,8 +46,19 @@ class MainActivity : AppCompatActivity() {
                     val key = dateReference.key.toString()
                     key.let { temperatureKeys.add(it) }
                     value?.let { temperatureReport.add(it) }
+
+                    for (hourReference in dateReference.children) {
+                        val hourKey = hourReference.key.toString()
+                        val hourCelcius = hourReference.child("celcius").getValue()
+                        val hourFarenheit = hourReference.child("farenheit").getValue()
+                        celciusMap[hourReference.key.toString()] = hourCelcius!!
+                        farenheitMap[hourReference.key.toString()] = hourFarenheit!!
+
+                    }
+                    celciusReport[key] = celciusMap
+                    farenheitReport[key] = farenheitMap
                 }
-                //textView.text = temperatureReport.toString()
+                //textView.text = farenheitReport.toString()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -64,13 +86,9 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    val selectedOption = temperatureKeys[position]
+                    val selectedCelciusOption = temperatureKeys[position]
 
-                    when (selectedOption)  {
-                        "2023-09-27" -> {
 
-                        }
-                    }
                 }
             })
 
