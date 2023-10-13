@@ -3,9 +3,9 @@ package com.weathermonitor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class WeeklyReport : AppCompatActivity() {
+class InRangeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.weekly_report_activity)
+        setContentView(R.layout.in_range_report_activity)
     }
 }

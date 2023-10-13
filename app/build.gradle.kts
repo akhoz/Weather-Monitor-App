@@ -28,6 +28,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -59,4 +60,7 @@ dependencies {
     // Firebase UI Library
     implementation("com.firebaseui:firebase-ui-auth:8.0.2")
     implementation("com.firebaseui:firebase-ui-database:8.0.2")
+
+    // MPAndroidCharts (tool for creating graphs)
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 }

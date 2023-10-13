@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">WeatherMonitor</string>
+    
+    <string-array name="dates">
+        <item name="one">2023–09–27</item>
+        <item name="two">2023–09–28</item>
+        <item name="three">2023–09–29</item>
+        <item name="four">2023–09–30</item>
+        <item name="five">2023–10–01</item>
+        <item name="six">2023–10–02</item>
+        <item name="seven">2023–10–03</item>
+    </string-array>
 </resources>

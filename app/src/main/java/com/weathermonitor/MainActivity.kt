@@ -13,6 +13,11 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.database.*
 
 import android.graphics.Color
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.data.LineData
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
@@ -71,6 +76,11 @@ class MainActivity : AppCompatActivity() {
         val inRangeButton = findViewById<Button>(R.id.inRangeButton)
 
         val spinner = findViewById<Spinner>(R.id.spinner)
+
+        val celciusEntries = ArrayList<Entry>()
+        val farenheitEntries = ArrayList<Entry>()
+        val lineChart = findViewById<LineChart>(R.id.lineChart)
+
         dayButton.setOnClickListener {
 
             //Spinner construction
@@ -86,8 +96,34 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    val selectedCelciusOption = temperatureKeys[position]
+                    val selectedOption = temperatureKeys[position]
 
+                    celciusEntries.clear()
+                    farenheitEntries.clear()
+
+                    val celciusData = celciusReport[selectedOption]
+                    val farenheitData = farenheitReport[selectedOption]
+
+                    for (hour in celciusData!!.keys) {
+                        celciusEntries.add(Entry(hour.toFloat(), celciusData[hour].toString().toFloat()))
+                    }
+
+                    for (hour in farenheitData!!.keys) {
+                        farenheitEntries.add(Entry(hour.toFloat(), farenheitData[hour].toString().toFloat()))
+                    }
+
+                    val celciusDataSet = LineDataSet(celciusEntries, "Celcius")
+                    val farenheitDataSet = LineDataSet(farenheitEntries, "Farenheit")
+
+                    celciusDataSet.color = Color.RED
+                    farenheitDataSet.color = Color.BLUE
+
+                    val lineData = LineData(celciusDataSet, farenheitDataSet)
+                    lineChart.data = lineData
+                    //lineChart.visibility = View.VISIBLE
+                    lineChart.data.notifyDataChanged()
+                    lineChart.notifyDataSetChanged()
+                    lineChart.invalidate()
 
                 }
             })
