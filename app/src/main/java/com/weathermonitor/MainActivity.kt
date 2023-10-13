@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         databaseReference = FirebaseDatabase.getInstance().reference
 
         //val textView = findViewById<TextView>(R.id.textView)
+        //val textView2 = findViewById<TextView>(R.id.textView2)
 
         val temperatureReport = mutableListOf<Any>()
         val celciusReport = mutableMapOf<String, Map<String, Any>>()
@@ -52,18 +53,20 @@ class MainActivity : AppCompatActivity() {
                     key.let { temperatureKeys.add(it) }
                     value?.let { temperatureReport.add(it) }
 
+                    val celciusMap = mutableMapOf<String, Any>() // Nuevo mapa para cada clave
+                    val farenheitMap = mutableMapOf<String, Any>() // Nuevo mapa para cada clave
+
                     for (hourReference in dateReference.children) {
                         val hourKey = hourReference.key.toString()
                         val hourCelcius = hourReference.child("celcius").getValue()
                         val hourFarenheit = hourReference.child("farenheit").getValue()
                         celciusMap[hourReference.key.toString()] = hourCelcius!!
                         farenheitMap[hourReference.key.toString()] = hourFarenheit!!
-
                     }
+
                     celciusReport[key] = celciusMap
                     farenheitReport[key] = farenheitMap
                 }
-                //textView.text = farenheitReport.toString()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -90,18 +93,22 @@ class MainActivity : AppCompatActivity() {
             spinner.visibility = View.VISIBLE
 
             //Spinner selection
-            spinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     println("Nothing selected")
+                    //textView.text = "Nothing selected"
                 }
 
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    val selectedOption = temperatureKeys[position]
+                    val selectedOption = temperatureKeys[position].toString()
+                    //textView2.text = selectedOption
+
 
                     celciusEntries.clear()
                     farenheitEntries.clear()
 
                     val celciusData = celciusReport[selectedOption]
+                    //textView.text = celciusReport[selectedOption].toString()
                     val farenheitData = farenheitReport[selectedOption]
 
                     for (hour in celciusData!!.keys) {
@@ -126,7 +133,7 @@ class MainActivity : AppCompatActivity() {
                     lineChart.invalidate()
 
                 }
-            })
+            }
 
 
         }
