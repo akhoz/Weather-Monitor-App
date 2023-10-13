@@ -19,6 +19,7 @@ import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 
 
 class MainActivity : AppCompatActivity() {
@@ -81,6 +82,8 @@ class MainActivity : AppCompatActivity() {
         val inRangeButton = findViewById<Button>(R.id.inRangeButton)
 
         val spinner = findViewById<Spinner>(R.id.spinner)
+        val initialDate = findViewById<EditText>(R.id.initialDate)
+        val finalDate = findViewById<EditText>(R.id.finalDate)
 
         val celciusEntries = ArrayList<Entry>()
         val farenheitEntries = ArrayList<Entry>()
@@ -93,6 +96,11 @@ class MainActivity : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
             spinner.visibility = View.VISIBLE
+
+            initialDate.visibility = View.INVISIBLE
+            finalDate.visibility = View.INVISIBLE
+
+            lineChart.visibility = View.INVISIBLE
 
             //Spinner selection
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -140,9 +148,11 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        val initialDate = findViewById<EditText>(R.id.initialDate)
-        val finalDate = findViewById<EditText>(R.id.finalDate)
         inRangeButton.setOnClickListener {
+            spinner.visibility = View.INVISIBLE
+
+            lineChart.visibility = View.INVISIBLE
+
             initialDate.visibility = View.VISIBLE
             finalDate.visibility = View.VISIBLE
 
@@ -168,39 +178,33 @@ class MainActivity : AppCompatActivity() {
                         val farenheitEntries = ArrayList<Entry>()
 
                         for (i in initialDateIndex..finalDateIndex) {
-                            val celciusData = celciusReport[temperatureKeys[i]]
-                            val farenheitData = farenheitReport[temperatureKeys[i]]
+                            val date = temperatureKeys[i]
+                            val celciusData = celciusReport[date]
+                            val farenheitData = farenheitReport[date]
 
-                            for (hour in celciusData!!.keys) {
-                                celciusEntries.add(
-                                    Entry(
-                                        hour.toFloat(),
-                                        celciusData[hour].toString().toFloat()
-                                    )
-                                )
-                            }
+                            // Calcular el promedio de las temperaturas para el día
+                            val celciusAverage = celciusData?.values?.map { it.toString().toFloat() }?.average()!!.toFloat()
+                            val farenheitAverage = farenheitData?.values?.map { it.toString().toFloat() }?.average()!!.toFloat()
 
-                            for (hour in farenheitData!!.keys) {
-                                farenheitEntries.add(
-                                    Entry(
-                                        hour.toFloat(),
-                                        farenheitData[hour].toString().toFloat()
-                                    )
-                                )
-                            }
+                            celciusEntries.add(Entry(i.toFloat(), celciusAverage))
+                            farenheitEntries.add(Entry(i.toFloat(), farenheitAverage))
                         }
 
-                        val celciusDataSet = LineDataSet(celciusEntries, "Celcius")
-                        val farenheitDataSet = LineDataSet(farenheitEntries, "Farenheit")
+                        val celciusDateLabels = temperatureKeys.subList(initialDateIndex, finalDateIndex + 1)
+
+                        val xAxis = lineChart.xAxis
+                        xAxis.valueFormatter = IndexAxisValueFormatter(celciusDateLabels)
+                        xAxis.labelRotationAngle = 45f
+
+                        val celciusDataSet = LineDataSet(celciusEntries, "Celsius")
+                        val farenheitDataSet = LineDataSet(farenheitEntries, "Fahrenheit")
 
                         celciusDataSet.color = Color.RED
                         farenheitDataSet.color = Color.BLUE
-                        lineChart.visibility = View.VISIBLE
+
                         val lineData = LineData(celciusDataSet, farenheitDataSet)
                         lineChart.data = lineData
-                        //lineChart.visibility = View.VISIBLE
-                        lineChart.data.notifyDataChanged()
-                        lineChart.notifyDataSetChanged()
+                        lineChart.visibility = View.VISIBLE
                         lineChart.invalidate()
                     }
 
@@ -232,39 +236,33 @@ class MainActivity : AppCompatActivity() {
                         val farenheitEntries = ArrayList<Entry>()
 
                         for (i in initialDateIndex..finalDateIndex) {
-                            val celciusData = celciusReport[temperatureKeys[i]]
-                            val farenheitData = farenheitReport[temperatureKeys[i]]
+                            val date = temperatureKeys[i]
+                            val celciusData = celciusReport[date]
+                            val farenheitData = farenheitReport[date]
 
-                            for (hour in celciusData!!.keys) {
-                                celciusEntries.add(
-                                    Entry(
-                                        hour.toFloat(),
-                                        celciusData[hour].toString().toFloat()
-                                    )
-                                )
-                            }
+                            // Calcular el promedio de las temperaturas para el día
+                            val celciusAverage = celciusData?.values?.map { it.toString().toFloat() }?.average()!!.toFloat()
+                            val farenheitAverage = farenheitData?.values?.map { it.toString().toFloat() }?.average()!!.toFloat()
 
-                            for (hour in farenheitData!!.keys) {
-                                farenheitEntries.add(
-                                    Entry(
-                                        hour.toFloat(),
-                                        farenheitData[hour].toString().toFloat()
-                                    )
-                                )
-                            }
+                            celciusEntries.add(Entry(i.toFloat(), celciusAverage))
+                            farenheitEntries.add(Entry(i.toFloat(), farenheitAverage))
                         }
 
-                        val celciusDataSet = LineDataSet(celciusEntries, "Celcius")
-                        val farenheitDataSet = LineDataSet(farenheitEntries, "Farenheit")
+                        val celciusDateLabels = temperatureKeys.subList(initialDateIndex, finalDateIndex + 1)
+
+                        val xAxis = lineChart.xAxis
+                        xAxis.valueFormatter = IndexAxisValueFormatter(celciusDateLabels)
+                        xAxis.labelRotationAngle = 45f
+
+                        val celciusDataSet = LineDataSet(celciusEntries, "Celsius")
+                        val farenheitDataSet = LineDataSet(farenheitEntries, "Fahrenheit")
 
                         celciusDataSet.color = Color.RED
                         farenheitDataSet.color = Color.BLUE
-                        lineChart.visibility = View.VISIBLE
+
                         val lineData = LineData(celciusDataSet, farenheitDataSet)
                         lineChart.data = lineData
-                        //lineChart.visibility = View.VISIBLE
-                        lineChart.data.notifyDataChanged()
-                        lineChart.notifyDataSetChanged()
+                        lineChart.visibility = View.VISIBLE
                         lineChart.invalidate()
                     }
 
@@ -279,3 +277,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
