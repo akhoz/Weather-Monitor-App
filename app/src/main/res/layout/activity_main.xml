@@ -4,7 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/weather_theme"
     tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/finalDate"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="@string/final_date"
+        android:inputType="date"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/dateGraph"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/initialDate"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/dayButton"
@@ -22,7 +38,7 @@
     <Button
         android:id="@+id/inRangeButton"
         android:layout_width="221dp"
-        android:layout_height="96dp"
+        android:layout_height="87dp"
         android:layout_marginTop="144dp"
         android:layout_marginEnd="172dp"
         android:backgroundTint="#020456"
@@ -41,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inRangeButton"
-        app:layout_constraintVertical_bias="0.047"
+        app:layout_constraintVertical_bias="0.115"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
@@ -59,7 +75,22 @@
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/lineChart"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:visibility="invisible" />
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/initialDate"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="@string/initial_date"
+        android:inputType="date"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/dateGraph"
+        app:layout_constraintEnd_toStartOf="@+id/finalDate"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

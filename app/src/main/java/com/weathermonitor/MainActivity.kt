@@ -13,6 +13,8 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.database.*
 
 import android.graphics.Color
+import android.text.TextWatcher
+import android.widget.EditText
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineDataSet
@@ -124,7 +126,7 @@ class MainActivity : AppCompatActivity() {
 
                     celciusDataSet.color = Color.RED
                     farenheitDataSet.color = Color.BLUE
-
+                    lineChart.visibility = View.VISIBLE
                     val lineData = LineData(celciusDataSet, farenheitDataSet)
                     lineChart.data = lineData
                     //lineChart.visibility = View.VISIBLE
@@ -134,6 +136,144 @@ class MainActivity : AppCompatActivity() {
 
                 }
             }
+
+
+        }
+
+        val initialDate = findViewById<EditText>(R.id.initialDate)
+        val finalDate = findViewById<EditText>(R.id.finalDate)
+        inRangeButton.setOnClickListener {
+            initialDate.visibility = View.VISIBLE
+            finalDate.visibility = View.VISIBLE
+
+
+            initialDate.addTextChangedListener(object : TextWatcher {
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    //This should be empty
+                }
+
+                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+                    //This should be empty
+                }
+
+                override fun afterTextChanged(s: android.text.Editable) {
+                    val initialDateValue = initialDate.text.toString()
+                    val finalDateValue = finalDate.text.toString()
+
+                    if (initialDateValue in temperatureKeys && finalDateValue in temperatureKeys) {
+                        val initialDateIndex = temperatureKeys.indexOf(initialDateValue)
+                        val finalDateIndex = temperatureKeys.indexOf(finalDateValue)
+
+                        val celciusEntries = ArrayList<Entry>()
+                        val farenheitEntries = ArrayList<Entry>()
+
+                        for (i in initialDateIndex..finalDateIndex) {
+                            val celciusData = celciusReport[temperatureKeys[i]]
+                            val farenheitData = farenheitReport[temperatureKeys[i]]
+
+                            for (hour in celciusData!!.keys) {
+                                celciusEntries.add(
+                                    Entry(
+                                        hour.toFloat(),
+                                        celciusData[hour].toString().toFloat()
+                                    )
+                                )
+                            }
+
+                            for (hour in farenheitData!!.keys) {
+                                farenheitEntries.add(
+                                    Entry(
+                                        hour.toFloat(),
+                                        farenheitData[hour].toString().toFloat()
+                                    )
+                                )
+                            }
+                        }
+
+                        val celciusDataSet = LineDataSet(celciusEntries, "Celcius")
+                        val farenheitDataSet = LineDataSet(farenheitEntries, "Farenheit")
+
+                        celciusDataSet.color = Color.RED
+                        farenheitDataSet.color = Color.BLUE
+                        lineChart.visibility = View.VISIBLE
+                        val lineData = LineData(celciusDataSet, farenheitDataSet)
+                        lineChart.data = lineData
+                        //lineChart.visibility = View.VISIBLE
+                        lineChart.data.notifyDataChanged()
+                        lineChart.notifyDataSetChanged()
+                        lineChart.invalidate()
+                    }
+
+                    else {
+                        lineChart.visibility = View.INVISIBLE
+                    }
+                }
+
+            })
+
+            finalDate.addTextChangedListener(object : TextWatcher {
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    //This should be empty
+                }
+
+                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+                    //This should be empty
+                }
+
+                override fun afterTextChanged(s: android.text.Editable) {
+                    val initialDateValue = initialDate.text.toString()
+                    val finalDateValue = finalDate.text.toString()
+
+                    if (initialDateValue in temperatureKeys && finalDateValue in temperatureKeys) {
+                        val initialDateIndex = temperatureKeys.indexOf(initialDateValue)
+                        val finalDateIndex = temperatureKeys.indexOf(finalDateValue)
+
+                        val celciusEntries = ArrayList<Entry>()
+                        val farenheitEntries = ArrayList<Entry>()
+
+                        for (i in initialDateIndex..finalDateIndex) {
+                            val celciusData = celciusReport[temperatureKeys[i]]
+                            val farenheitData = farenheitReport[temperatureKeys[i]]
+
+                            for (hour in celciusData!!.keys) {
+                                celciusEntries.add(
+                                    Entry(
+                                        hour.toFloat(),
+                                        celciusData[hour].toString().toFloat()
+                                    )
+                                )
+                            }
+
+                            for (hour in farenheitData!!.keys) {
+                                farenheitEntries.add(
+                                    Entry(
+                                        hour.toFloat(),
+                                        farenheitData[hour].toString().toFloat()
+                                    )
+                                )
+                            }
+                        }
+
+                        val celciusDataSet = LineDataSet(celciusEntries, "Celcius")
+                        val farenheitDataSet = LineDataSet(farenheitEntries, "Farenheit")
+
+                        celciusDataSet.color = Color.RED
+                        farenheitDataSet.color = Color.BLUE
+                        lineChart.visibility = View.VISIBLE
+                        val lineData = LineData(celciusDataSet, farenheitDataSet)
+                        lineChart.data = lineData
+                        //lineChart.visibility = View.VISIBLE
+                        lineChart.data.notifyDataChanged()
+                        lineChart.notifyDataSetChanged()
+                        lineChart.invalidate()
+                    }
+
+                    else {
+                        lineChart.visibility = View.INVISIBLE
+                    }
+                }
+
+            })
 
 
         }

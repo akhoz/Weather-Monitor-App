@@ -10,4 +10,7 @@
         <item name="six">2023–10–02</item>
         <item name="seven">2023–10–03</item>
     </string-array>
+
+    <string name="initial_date">2023–09–27</string>
+    <string name="final_date">2023–10–03</string>
 </resources>
