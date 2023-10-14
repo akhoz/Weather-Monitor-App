@@ -20,12 +20,13 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.google.android.material.transition.MaterialSharedAxis.Axis
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
 
-    @SuppressLint("SuspiciousIndentation", "MissingInflatedId")
+    @SuppressLint("SuspiciousIndentation", "MissingInflatedId", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         val celciusMap = mutableMapOf<String, Any>()
         val farenheitMap = mutableMapOf<String, Any>()
         val temperatureKeys = mutableListOf<String>()
+        val historicalValue = findViewById<TextView>(R.id.historicalValue)
         val weatherMonitorReference = databaseReference.child("Temperature")
 
         weatherMonitorReference.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -70,14 +72,43 @@ class MainActivity : AppCompatActivity() {
                     celciusReport[key] = celciusMap
                     farenheitReport[key] = farenheitMap
                 }
-            }
 
+                var maxCelcius: Int? = null
+                var minCelcius: Int? = null
+                var maxFarenheit: Int? = null
+                var minFarenheit: Int? = null
+
+                for ((date, hours) in celciusReport) {
+                    for ((hour, temp) in hours) {
+                        if (maxCelcius == null || temp.toString().toInt() > maxCelcius!!) {
+                            maxCelcius = temp.toString().toInt()
+                        }
+                        if (minCelcius == null || temp.toString().toInt() < minCelcius!!) {
+                            minCelcius = temp.toString().toInt()
+                        }
+                    }
+                }
+
+                for ((date, hours) in farenheitReport) {
+                    for ((hour, temp) in hours) {
+                        if (maxFarenheit == null || temp.toString().toInt() > maxFarenheit!!) {
+                            maxFarenheit = temp.toString().toInt()
+                        }
+                        if (minFarenheit == null || temp.toString().toInt() < minFarenheit!!) {
+                            minFarenheit = temp.toString().toInt()
+                        }
+                    }
+                }
+
+                historicalValue.text = "Max: $maxCelcius C, $maxFarenheit F - Min: $minCelcius C, $minFarenheit F"
+            }
             override fun onCancelled(error: DatabaseError) {
                 println("Failed to read value.")
             }
         })
 
         //UI section----------------------------------------------------------
+
         val dayButton = findViewById<Button>(R.id.dayButton)
         val inRangeButton = findViewById<Button>(R.id.inRangeButton)
 
@@ -88,6 +119,10 @@ class MainActivity : AppCompatActivity() {
         val celciusEntries = ArrayList<Entry>()
         val farenheitEntries = ArrayList<Entry>()
         val lineChart = findViewById<LineChart>(R.id.lineChart)
+        val historicalMsg = findViewById<TextView>(R.id.historicalMsg)
+        val queryMsg = findViewById<TextView>(R.id.queryMsg)
+        val queryValue = findViewById<TextView>(R.id.queryValue)
+        val xAxis = lineChart.xAxis
 
         dayButton.setOnClickListener {
 
@@ -99,8 +134,13 @@ class MainActivity : AppCompatActivity() {
 
             initialDate.visibility = View.INVISIBLE
             finalDate.visibility = View.INVISIBLE
-
+            historicalMsg.visibility = View.VISIBLE
+            historicalValue.visibility = View.VISIBLE
+            queryMsg.visibility = View.INVISIBLE
+            queryValue.visibility = View.INVISIBLE
             lineChart.visibility = View.INVISIBLE
+
+            xAxis.isEnabled = false
 
             //Spinner selection
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -142,19 +182,51 @@ class MainActivity : AppCompatActivity() {
                     lineChart.notifyDataSetChanged()
                     lineChart.invalidate()
 
+                    var maxCelcius: Int? = null
+                    var minCelcius: Int? = null
+                    var maxFarenheit: Int? = null
+                    var minFarenheit: Int? = null
+
+                    for ((hour,temp) in celciusData) {
+                        if (maxCelcius == null || temp.toString().toInt() > maxCelcius!!) {
+                            maxCelcius = temp.toString().toInt()
+                        }
+                        if (minCelcius == null || temp.toString().toInt() < minCelcius!!) {
+                            minCelcius = temp.toString().toInt()
+                        }
+                    }
+
+                    for ((hour,temp) in farenheitData) {
+                        if (maxFarenheit == null || temp.toString().toInt() > maxFarenheit!!) {
+                            maxFarenheit = temp.toString().toInt()
+                        }
+                        if (minFarenheit == null || temp.toString().toInt() < minFarenheit!!) {
+                            minFarenheit = temp.toString().toInt()
+                        }
+                    }
+
+                    queryMsg.visibility = View.VISIBLE
+                    queryValue.visibility = View.VISIBLE
+                    queryValue.text = "Max: $maxCelcius C, $maxFarenheit F - Min: $minCelcius C, $minFarenheit F"
+
                 }
             }
 
 
         }
 
+
         inRangeButton.setOnClickListener {
             spinner.visibility = View.INVISIBLE
 
             lineChart.visibility = View.INVISIBLE
-
+            historicalMsg.visibility = View.VISIBLE
+            historicalValue.visibility = View.VISIBLE
             initialDate.visibility = View.VISIBLE
             finalDate.visibility = View.VISIBLE
+
+            queryMsg.visibility = View.VISIBLE
+            queryValue.visibility = View.VISIBLE
 
 
             initialDate.addTextChangedListener(object : TextWatcher {
@@ -177,6 +249,8 @@ class MainActivity : AppCompatActivity() {
                         val celciusEntries = ArrayList<Entry>()
                         val farenheitEntries = ArrayList<Entry>()
 
+                        val celciusDateLabels = mutableListOf<String>()
+
                         for (i in initialDateIndex..finalDateIndex) {
                             val date = temperatureKeys[i]
                             val celciusData = celciusReport[date]
@@ -188,11 +262,11 @@ class MainActivity : AppCompatActivity() {
 
                             celciusEntries.add(Entry(i.toFloat(), celciusAverage))
                             farenheitEntries.add(Entry(i.toFloat(), farenheitAverage))
+                            celciusDateLabels.add(date)
                         }
 
-                        val celciusDateLabels = temperatureKeys.subList(initialDateIndex, finalDateIndex + 1)
+                        xAxis.isEnabled = true
 
-                        val xAxis = lineChart.xAxis
                         xAxis.valueFormatter = IndexAxisValueFormatter(celciusDateLabels)
                         xAxis.labelRotationAngle = 45f
 
@@ -264,6 +338,38 @@ class MainActivity : AppCompatActivity() {
                         lineChart.data = lineData
                         lineChart.visibility = View.VISIBLE
                         lineChart.invalidate()
+
+                        var maxCelcius: Int? = null
+                        var minCelcius: Int? = null
+                        var maxFarenheit: Int? = null
+                        var minFarenheit: Int? = null
+
+                        for(i in initialDateIndex..finalDateIndex) {
+                            val date = temperatureKeys[i]
+                            val celciusData = celciusReport[date]
+                            val farenheitData = farenheitReport[date]
+
+                            for ((hour,temp) in celciusData!!) {
+                                if (maxCelcius == null || temp.toString().toInt() > maxCelcius!!) {
+                                    maxCelcius = temp.toString().toInt()
+                                }
+                                if (minCelcius == null || temp.toString().toInt() < minCelcius!!) {
+                                    minCelcius = temp.toString().toInt()
+                                }
+                            }
+
+                            for ((hour,temp) in farenheitData!!) {
+                                if (maxFarenheit == null || temp.toString().toInt() > maxFarenheit!!) {
+                                    maxFarenheit = temp.toString().toInt()
+                                }
+                                if (minFarenheit == null || temp.toString().toInt() < minFarenheit!!) {
+                                    minFarenheit = temp.toString().toInt()
+                                }
+                            }
+                        }
+
+                        queryValue.text = "Max: $maxCelcius C, $maxFarenheit F - Min: $minCelcius C, $minFarenheit F"
+
                     }
 
                     else {
